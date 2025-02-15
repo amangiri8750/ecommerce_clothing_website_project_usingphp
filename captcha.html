@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>CUSTOM CAPTCHA </title>
+    <style>
+        .v {
+            width: 100px;
+        }
+
+        .form {
+            background-color: gainsboro;
+        }
+
+        span {
+            color: red;
+        }
+
+        .captcha {
+            border: 1px solid black;
+            width: 100px;
+            /* background-image: url("logo11.png");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-position: cover; */
+            background: conic-gradient( red, blue,green,orange);
+               -webkit-background-clip: text;
+              color: transparent;
+            
+
+        }
+
+        input {
+            width: 100px;
+            border: 1px solid black;
+            background: conic-gradient( red, blue,green,orange);
+               -webkit-background-clip: text;
+              color: transparent;
+        }
+
+        .enter {
+            background-color: gainsboro;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container p-5 d-flex align-items-center justify-content-center">
+        <div class="row p-5 form ">
+            <div class="col-12 text-center">
+                <h3 >Welcome to website.Please write text  to enter into the website.</h3>
+            </div>
+            <div class="col-12 d-flex align-items-center justify-content-center pb-3">Refresh Captcha <a
+                    href="captcha.html"> <i class="m-2 fa-solid fa-rotate"></i></a></div>
+            <div class="col-4"></div>
+            <div class="col-4 bg-light">
+                <div class="row">
+                    <div class="col-12 p-2">
+                        <div class="row">
+                            <div class="col-6 p-2 text-center">captcha</div>
+                            <div class="col-6 p-2">
+                                <div class="captcha p-2 text-center" id="store"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 p-2">
+                        <div class="row">
+                            <div class="col-6 p-2 text-center">    Enter Captcha<span>*</span></div>
+                            <div class="col-6 p-2"><input type="text" class="p-2 text-center" id="inp"></div>
+                        </div>
+                    </div>
+                    <div class="col-12 p-2 d-flex align-items-center justify-content-center">
+                        <div class="enter p-2 text-center " id="enter">Enter website</div>
+                    </div>
+                    <div class="verified text-center text-success d-none" id="very">verified</div>
+                    <div class="notverifird text-center text-danger d-none" id="notvery">not-verified captcha wrong
+                    </div>
+                </div>
+            </div>
+            <div class="col-4"></div>
+
+
+        </div>
+    </div>
+
+    <script>
+        arr = ['A', 'Q', 'W', 'E', 'T', 'R', 'Y', 'U', 'I', '0', 'P', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', '1', 'N', 'M', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', '4', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'A', 'Q', 'W', 'E', 'T', 'R', 'Y', '7', 'I', 'O', '8', 'S', 'D', 'F', 'G', 'H', '3', 'K', 'L', 'Z', 'X', '2', 'V', 'B', 'N', 'M', 'q', '5', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '6', 's', 'd', 'f', 'g', 'h', 'j', 'k', '9', 'z', 'x', 'c', 'v', 'b', 'n', 'm'];
+
+
+
+
+        var store = document.getElementById("store");
+        var inp = document.getElementById("inp");
+        var very = document.getElementById("very");
+        var notvery = document.getElementById("notvery");
+        var enter = document.getElementById("enter");
+
+
+
+        for (i = 0; i <= 4; i++) {
+            var code = Math.floor(Math.random() * 100);
+            for (j = 0; j <= code; j++) {
+
+            }
+            store.innerText += arr[j];
+        }
+        function wrong() {
+            window.location.href = 'captcha.html';
+}
+
+        enter.addEventListener("click", function check() {
+            if (store.innerText === inp.value) {
+                very.classList.remove("d-none");
+                notvery.classList.add("d-none");
+                window.location.href = 'log.php';
+            } else {
+                notvery.classList.remove("d-none");
+                very.classList.add("d-none");
+                setTimeout(wrong, 2000);
+
+            }
+        });
+
+       
+
+// Set timeout of 2 seconds (2000 milliseconds)
+
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>`    
