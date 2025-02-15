@@ -114,12 +114,15 @@
         function wrong() {
             window.location.href = 'captcha.html';
 }
+         function right() {
+            window.location.href = 'log.php';
+}
 
         enter.addEventListener("click", function check() {
             if (store.innerText === inp.value) {
                 very.classList.remove("d-none");
                 notvery.classList.add("d-none");
-                window.location.href = 'log.php';
+                setTimeout(right, 2000);
             } else {
                 notvery.classList.remove("d-none");
                 very.classList.add("d-none");
